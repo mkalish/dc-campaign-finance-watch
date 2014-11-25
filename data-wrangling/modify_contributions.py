@@ -6,8 +6,8 @@ contribution_collection = campaign_mongo_client.get_collection('contributions')
 
 candidate_collection = campaign_mongo_client.get_collection('candidates')
 
-for contribution in contribution_collection.find(timeout=false):
-    if contribution['candidate'] != '':
+for contribution in contribution_collection.find({'_id.last_name':{'$exists':False}}, timeout=False):
+    if contribution['candidate'] != '' and not isinstance(contribution['candidate'], dict):
         name_split = contribution['candidate'].split(' ')
         candidate = candidate_collection.find({'_id.last_name':name_split[-1].replace('.', ''), '_id.first_name':name_split[0].replace('.', '')})
         if candidate.count() > 1:
