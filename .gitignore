@@ -4,8 +4,5 @@ node_modules/
 tmp
 .DS_Store
 .idea
-<<<<<<< HEAD
 backups
 csv
-=======
->>>>>>> parent of 1333f6d... version 2
