@@ -30,7 +30,7 @@ for row in rows:
  
         campaign = {'position':row['office'],'year':row['election_year']}
 
-        if 'campaigns' in candidate and not campaign in candidate['campaigns']:
+        if 'campaigns' in candidate:
             candidate['campaigns'].append(campaign)
         else:
              candidate['campaigns'] = [campaign]
